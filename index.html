@@ -13,10 +13,10 @@
 
 <script>
 document.getElementById('downloadButton').addEventListener('click', function() {
-    const fileUrl = 'file.html'; // Specify the file URL
+    const fileUrl = 'https://github.com/Dynamitdreng307/DefaultDiscordSucksSoLetsFixIt/blob/main/my-theme.theme.css'; // Specify the file URL
     const anchor = document.createElement('a');
     anchor.href = fileUrl;
-    anchor.download = 'file.html'; // Specify the name for the downloaded file
+    anchor.download = ''; // Specify the name for the downloaded file
     document.body.appendChild(anchor);
     anchor.click();
     document.body.removeChild(anchor);
