@@ -7,6 +7,21 @@
 
 
     <body>
-        <h1> I really do not want to make a site rn, so this is a placeholder. Just download the file ig</h1>
+        <h1> I really do not want to make a site rn, so this is a placeholder. Just download the file ig ---> </h1>
+
+        <button id="downloadButton">Download File</button>
+
+<script>
+document.getElementById('downloadButton').addEventListener('click', function() {
+    const fileUrl = 'file.html'; // Specify the file URL
+    const anchor = document.createElement('a');
+    anchor.href = fileUrl;
+    anchor.download = 'file.html'; // Specify the name for the downloaded file
+    document.body.appendChild(anchor);
+    anchor.click();
+    document.body.removeChild(anchor);
+});
+</script>
+
     </body>
 </html>
