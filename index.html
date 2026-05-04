@@ -1,12 +1,164 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Mooncat - Discord theme</title>
+    <!DOCTYPE html>
 
-        <h1> I do not want to make an actual website rn:p</h1>
-    </head>
+    <html> 
+        <head>
+            <title>Greg's Spwace:3</title>
+            <link rel="icon" type="image/x-icon" href="Downloads\Website\Displayed\Favicon.png">
+            <style>
+                .edge {
+                    width: 20px;
+                    height: 1580px;
+                    background-color: #e3b1e0;
+                    position: absolute;
+                    z-index: -3;
+}
+                .incurve {
+                    width: 50px;
+                    height: 50px;
+                    background-color: #e3b1e0;
+                    position: absolute;
+                    z-index: -4;
+}
+                .outline-box {
+                    size: null; width: 365px; height: 265px;
+                    background-color: #ffffff00;
+                    border: 1.5px solid #000000;
+                    position: absolute;
+                    top: 14px;
+                    left: 95px;
+                    border-radius: 8px;
+                    z-index: 2;
+}
+                .box {
+                    size: null; width: 475px; height: 1080px;
+                    background-color: #e3b1e0;
+                    border: 0px solid #000000;
+                    position: absolute;
+                    top: 380px;
+                    left: -110px;
+                    border-radius: 12px;
+                    z-index: -2;
+}
+                .welcome-img {
+                    width: 330px;
+                    height: auto;
+                    position: absolute;
+                    top: 14px;
+                    left: 130px;
+                    border-radius: 14px;
+                    z-index: -1;
+}
+                .edge-left { top: -500px; left: 110px; }
+                .edge-right { top: -500px; left: 1335.5px; width: 81px; }
+                .edge-top { width: 1250px; height: 20px; top: -360px; left: 100px; }
 
-    <body>
-        
+                .incurve-leftmiddle { top: -20px; left: 100px; border-radius: 20px; corner-shape: scoop; }
+                .incurve-topleft { top: -370px; left: 100px; border-radius: 20px; corner-shape: scoop; }
+                .incurve-topright { top: -370px; left: 1316px; border-radius: 20px; corner-shape: scoop; }
+
+                body {
+                    margin: 0;
+                    overflow-x: hidden;
+                    overflow-y: hidden;
+}
+            </style>
+        <style>
+                /* container will follow normal flow (relative to page) */
+                #petal-container {
+                    position: absolute; /* "normal" for document flow */
+                    width: 100%;
+                    pointer-events: none; /* so petals don’t block clicks */
+}
+                .petal {
+                    position: absolute;
+                    top: -380px;
+                    width: 30px;
+                    opacity: 0.5;
+                    pointer-events: none;
+}
+                /* Basic fall animation - we will tweak it via JS */
+                @keyframes fall {
+                    0% {
+                        transform: translateY(0px) rotate(0deg) translateX(0px);
+}
+                    100% {
+                        transform: translateY(var(--fall-distance)) rotate(var(--rotation)) translateX(var(--drift));
+                        opacity: var(--opacity);
+}
+}
+            </style>
+        </head>
+            <body>
+                <div class="box">
+                    <div class="edge edge-left"></div>
+                    <div class="edge edge-right"></div>
+                    <div class="edge edge-top"></div>
+
+                    <div class="incurve incurve-leftmiddle"></div>
+                    <div class="incurve incurve-topleft"></div>
+                    <div class="incurve incurve-topright"></div>
+
+                    <img src="Displayed/Welcome.gif" alt="Welcome image" class="welcome-img">
+
+                    <div id="petal-container"></div>
+                </div>
+                    <script>
+                        document.addEventListener('wheel', function(e) {
+                        if (e.ctrlKey) {
+                            e.preventDefault();
+                        }
+                        }, { passive: false });
+                </script>
+            <script>
+                const petalImages = [
+                    "Displayed/blossomleafone.png",
+                    "Displayed/blossomleaftwo.png",
+                    "Displayed/blossomleafthree.png"
+                ];
+
+const pageHeight = document.body.scrollHeight;
+
+
+function createPetal() {
+    const petal = document.createElement("img");
+    petal.classList.add("petal");
+
+    // Random image
+    petal.src = petalImages[Math.floor(Math.random() * petalImages.length)];
+
+    // Random horizontal starting position
+    petal.style.left = Math.random() * window.innerWidth + "px";
+
+    // Random opacity
+    const opacity = 0.3 + Math.random() * 0.9;
+    petal.style.setProperty("--opacity", opacity);
+
+    // Random fall distance (height of page + some extra)
+    const distance = document.body.scrollHeight + 1000; // add box top offset
+    petal.style.setProperty("--fall-distance", distance + "px");
+
+    // Random rotation (total degrees rotated while falling)
+    const rotation = (Math.random() * 360) + "deg";
+    petal.style.setProperty("--rotation", rotation);
+
+    // Random side drift (-50px to +50px)
+    const drift = (Math.random() * 160 - 300) + "px";
+    petal.style.setProperty("--drift", drift);
+
+    // Random fall duration (speed)
+    const duration = 50 + Math.random() * 5; // 5s → 10s
+    petal.style.animation = `fall ${duration}s linear forwards`;
+
+    document.getElementById("petal-container").appendChild(petal);
+
+    // Remove the petal after it reaches bottom
+    setTimeout(() => {
+        petal.remove();
+    }, duration * 1000);
+}
+
+// Spawn petals at random intervals
+setInterval(createPetal, 800);
+</script>
     </body>
 </html>
