@@ -1,0 +1,138 @@
+/**
+ * @name DefaultSucksSoLetsFixIt
+ * @author femgreg.
+ * @description Discord's default theme sucks, so I made my own - Nighcat 
+ * @version 1.0
+ * @authorId 1254036340660637822
+*/
+
+@import url('https://refact0r.github.io/midnight-discord/build/midnight.css');
+
+
+body {
+    --font: 'https://fonts.google.com/specimen/Roboto+Condensed';
+    --code-font: '';
+    font-weight: 1500;
+
+
+    --gap: 12px; /* spacing between panels */
+    --divider-thickness: 6px; /* thickness of unread messages divider and highlighted message borders */
+    --border-thickness: 0.2px; /* thickness of borders around main panels. DOES NOT AFFECT OTHER BORDERS */
+
+
+    --animations: on; /* off: disable animations/transitions, on: enable animations/transitions */
+    --list-item-transition: 0.35s ease-out; /* transition for list items */
+    --dms-icon-svg-transition: 0.25s ease-out; /* transition for the dms icon */
+    --border-hover-transition: 0.45s ease-in-out; /* transition for borders when hovered */
+
+
+    --top-bar-height: var(--gap); /* height of the top bar (discord default is 36px, old discord style is 24px, var(--gap) recommended if button position is set to titlebar) */
+    --top-bar-button-position: titlebar; /* off: default position, hide: hide buttons completely, serverlist: move inbox button to server list, titlebar: move inbox button to channel titlebar (will hide title) */
+    --top-bar-title-position: on; /* off: default centered position, hide: hide title completely, left: left align title (like old discord) */
+    --subtle-top-bar-title: on; /* off: default, on: hide the icon and use subtle text color (like old discord) */
+
+    --custom-window-controls: on; /* off: default window controls, on: custom window controls */
+    --window-control-size: 14px; /* size of custom window controls */
+
+
+        --custom-dms-icon: custom; /* off: use default discord icon, hide: remove icon entirely, custom: use custom icon */
+        --dms-icon-svg-url: url('https://raw.githubusercontent.com/Dynamitdreng307/DiscordDefaultSucksSoLetsFixIt-Discord/e76227020e061e45166d6f365a3d91696c90497a/il_fullxfull.1281347677_8au6.svg'); /* icon svg url. MUST BE A SVG. */
+        --dms-icon-svg-size: 90%; /* size of the svg (css mask-size property) */
+        --dms-icon-color-before: var(white); /* normal icon color */
+        --dms-icon-color-after: var(black); /* icon color when button is hovered/selected */
+    --custom-dms-background: off; /* off to disable, image to use a background image (must set url variable below), color to use a custom color/gradient */
+    --dms-background-image-url: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapers.com%2Fimages%2Fhd%2Fblack-cat-silhouette-ai8v71r5qfyixgg1.jpg&f=1&nofb=1&ipt=6e97970939d07b525beb482e6b372f1638c28dfa2a7bdbd00a6dfa8a28b4614a'); /* url of the background image */
+    --dms-background-image-size: cover; /* size of the background image (css background-size property) */
+    --dms-background-color: linear-gradient(70deg, var(--blue-2), var(--purple-2), var(--red-2)); /* fixed color/gradient (css background property) */
+
+    --background-image: on; /* off: no background image, on: enable background image (must set url variable below) */
+    --background-image-url: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapers.com%2Fimages%2Fhd%2Fblack-cat-silhouette-ai8v71r5qfyixgg1.jpg&f=1&nofb=1&ipt=6e97970939d07b525beb482e6b372f1638c28dfa2a7bdbd00a6dfa8a28b4614a'); /* url of the background image */
+
+
+    --transparency-tweaks: on; /* off: no changes, on: remove some elements for better transparency */
+    --remove-bg-layer: off; /* off: no changes, on: remove the base --bg-3 layer for use with window transparency (WILL OVERRIDE BACKGROUND IMAGE) */
+    --panel-blur: on; /* off: no changes, on: blur the background of panels */
+    --blur-amount: 9px; /* amount of blur */
+    --bg-floating: var(--opauqe); /* set this to a more opaque color if floating panels look too transparent. only applies if panel blur is on  */
+
+
+    --custom-chatbar: on; /* off: default chatbar, separated: chatbar separated from chat */
+    --chatbar-height: 50px; /* height of the chatbar (56px by default, 47px to align with user panel, 56px recommended for separated) */
+    --small-user-panel: on; /* off: default user panel, on: smaller user panel like in old discord */
+}
+
+
+:root {
+    --colors: on; /* off: discord default colors, on: midnight custom colors */
+
+    --text-0: var(--bg-4); /* text on colored elements */
+    --text-1: hsl(0, 0%, 100%); /* other normally white text */
+    --text-2: hsl(0, 0%, 100%); /* headings and important text */
+    --text-3: hsl(0, 0%, 74%); /* normal text */
+    --text-4: hsl(0, 0%, 61%); /* icon buttons and channels */
+    --text-5: hwb(0 100% 0%); /* muted channels/chats and timestamps */
+
+    --bg-1: hsla(189, 100%, 50%, 0.287);
+    --bg-2: var(rgb(0, 0, 0));
+    --bg-3: oklch(36.002% 0.00004 271.152 / 0.137);
+    --bg-4: oklch(18.22% 0.00002 271.152 / 0.868);
+    --hover: linear-gradient(to right, color-mix(in hsl, var(--blue-1), transparent 70%   ) 30%, transparent);
+    --active: linear-gradient(to right, color-mix(in hsl, var(--blue-2), transparent 85%) 30%, transparent);
+    --active-2: linear-gradient(to right, color-mix(in hsl, var(--blue-3), transparent 85%) 30%, transparent);
+    --message-hover: linear-gradient(to right, color-mix(in hsl, var(--blue-1), transparent 88%) 10%, transparent);
+
+    --accent-1: var(--blue-1); /* links and other accent text */
+    --accent-2: var(--blue-2); /* small accent elements */
+    --accent-3: var(--blue-3); /* accent buttons */
+    --accent-4: var(--blue-4); /* accent buttons when hovered */
+    --accent-5: var(--blue-5); /* accent buttons when clicked */
+    --accent-new: var(--blue-1); /* stuff that's normally red like mute/deafen buttons */
+    --mention: linear-gradient(to right, color-mix(in hsl, var(--yellow-4), transparent 85%) 10%, transparent);
+    --mention-hover: linear-gradient(to right, color-mix(in hsl, var(--yellow-5), transparent 60%) 10%, transparent);
+    --reply: linear-gradient(to right, color-mix(in hsl, var(--white), transparent 95%) 30%, transparent);
+    --reply-hover: linear-gradient(to right, color-mix(in hsl, var(--white), transparent 85%) 30%, transparent);
+
+    --online: var(--green-2); /* change to #40a258 for default */
+    --dnd: var(--red-2); /* change to #d83a41 for default */
+    --idle: var(--yellow-2); /* change to #cc954c for default */
+    --streaming: var(--purple-2); /* change to ##9147ff for default */
+    --offline: var(--text-4); /* change to #82838b for default offline color */
+
+    --border-light: var(--hover); /* general light border color */
+    --border: var(--active); /* general normal border color */
+    --border-hover: var(--active); /* border color of panels when hovered */
+    --button-border: hsla(0, 0%, 100%, 0.509); /* neutral border color of buttons */
+
+    --red-1: oklch(75% 0.12 0);
+    --red-2: oklch(70% 0.12 0);
+    --red-3: oklch(65% 0.12 0);
+    --red-4: oklch(60% 0.12 0);
+    --red-5: oklch(55% 0.12 0);
+
+    --green-1: oklch(75% 0.11 170);
+    --green-2: oklch(70% 0.11 170);
+    --green-3: oklch(65% 0.11 170);
+    --green-4: oklch(60% 0.11 170);
+    --green-5: oklch(55% 0.11 160);
+
+    --blue-1: oklch(75% 0.1 215);
+    --blue-2: oklch(70% 0.1 215);
+    --blue-3: oklch(65% 0.1 215);
+    --blue-4: oklch(60% 0.1 215);
+    --blue-5: oklch(55% 0.1 215);
+
+    --yellow-1: oklch(80% 0.11 90);
+    --yellow-2: oklch(75% 0.11 90);
+    --yellow-3: oklch(70% 0.11 90);
+    --yellow-4: oklch(49.819% 0.09586 88.598);
+    --yellow-5: oklch(40.455% 0.07688 88.336);
+
+    --purple-1: oklch(75% 0.11 310);
+    --purple-2: oklch(70% 0.11 310);
+    --purple-3: oklch(65% 0.11 310);
+    --purple-4: oklch(60% 0.11 310);
+    --purple-5: oklch(44.281% 0.14466 309.487);
+
+    --gray:rgb(35, 35, 35);
+    --opauqe: oklch(0% 0 0 / 0.646);
+}
